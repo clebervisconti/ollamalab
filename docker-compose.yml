@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  ollama:
+    build: ./ollama
+    container_name: ollama_container
+    volumes:
+      - ./ollama/data:/app/data
+      - ./ollama/config/ollama_config.yaml:/app/config/ollama_config.yaml
+    environment:
+      - CONFIG_FILE=/app/config/ollama_config.yaml
+    ports:
+      - "8000:8000"
+    networks:
+      - ai_network
+
+  textgen-webui:
+    build: ./textgen-webui
+    container_name: textgen_webui_container
+    volumes:
+      - ./textgen-webui/data:/app/data
+      - ./textgen-webui/config/textgen_config.json:/app/config/textgen_config.json
+    environment:
+      - CONFIG_FILE=/app/config/textgen_config.json
+    ports:
+      - "5000:5000"
+    networks:
+      - ai_network
+
+networks:
+  ai_network:
+    driver: bridge
