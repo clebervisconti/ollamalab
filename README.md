@@ -11,3 +11,34 @@ Dockerized Deployment: Each service is containerized, ensuring isolated environm
 Configurable Settings: Environment variables and configuration files allow for customizable setups and integrations.
 Persistence & Data Management: Persistent storage for model data and logs, maintaining state between sessions.
 This repository is ideal for AI enthusiasts and developers looking to experiment with and run AI-powered applications on their local machines.
+
+# AI Home Lab
+
+This repository sets up an AI home lab with Ollama and Text Generation WebUI, running in a Docker environment. 
+
+## Requirements
+
+- Docker and Docker Compose
+- Git
+
+## File Structure
+
+```plaintext
+ai-home-lab/
+├── README.md
+├── docker-compose.yml
+├── ollama/
+│   ├── Dockerfile
+│   ├── config/
+│   │   └── ollama_config.yaml
+│   ├── data/
+│   └── scripts/
+│       └── ollama_start.sh
+├── textgen-webui/
+│   ├── Dockerfile
+│   ├── config/
+│   │   └── textgen_config.json
+│   ├── data/
+│   └── scripts/
+│       └── textgen_start.sh
+└── .env
